@@ -1,0 +1,167 @@
+<form class="border  p-3" #basicForm="ngForm" [formGroup]="registerform" (ngSubmit)="getData(basicForm.value)">
+
+    <div class="Registration-form col-md-6">
+        <div class="row g-0">
+            <div class="col text-center mb-3 bg-light">
+                <span class="fs-5">User Registration</span>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" ngModel class="form-control" id="firstname" formControlName="firstname">
+                <div class="form-text text-danger" *ngIf="FirstName.errors?.[ 'required'] && (FirstName.touched||FirstName.dirty)">
+                    First Name is required.
+                </div>
+                <div class="form-text text-danger" *ngIf="FirstName.errors?.[ 'minlength']">
+                    First Name should be greater than 3.
+                </div>
+                <div class="form-text text-danger" *ngIf="FirstName.errors?.[ 'pattern']">
+                    First Name should be start from alpha.
+                </div>
+            </div>
+            <div class="col">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" ngModel class="form-control" id="lastname" formControlName="lastname">
+                <div class="form-text text-danger" *ngIf="LastName.errors?.[ 'required'] && (LastName.touched||LastName.dirty)">
+                    Last Name is required.
+                </div>
+                <div class="form-text text-danger" *ngIf="LastName.errors?.[ 'minlength']">
+                    Last Name should be greater than 3.
+                </div>
+                <div class="form-text text-danger" *ngIf="FirstName.errors?.[ 'pattern']">
+                    Last Name should be start from alpha.
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col ps-3 mb-3 ">
+                <div class="m-1">Gender</div>
+                <div class="form-check form-check-inline">
+                    <label for="male" class="form-check-label">Male</label>
+                    <input type="radio" ngModel class=" form-check-input" id="male" value="m" formControlName="gender">
+                </div>
+                <div class="form-check form-check-inline">
+                    <label for="female" ngModel class="form-check-label">Female</label>
+                    <input type="radio" ngModel class=" form-check-input" id="female" value="f" formControlName="gender">
+                </div>
+            </div>
+            <div class="form-text text-danger" *ngIf="Gender.errors?.['required']">
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="adhaarnumber" class="form-label">Adhaar Number</label>
+                <input type="text" ngModel class="form-control" id="adhaarnumber" formControlName="adhaarnumber">
+                <div class="form-text"></div>
+            </div>
+
+
+            <div class="col mb-3">
+                <label for="pannumber" class="form-label">Pan Number</label>
+                <input type="text" ngModel class="form-control" id="pannumber" formControlName="pannumber">
+                <div class="form-text"></div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="text" ngModel class="form-control" id="password" formControlName="password">
+                <div class="form-text"></div>
+                <div class="form-text text-danger" *ngIf="password.errors?.[ 'required'] && (password.touched||password.dirty)">
+                    password is required.
+                </div>
+                <div class="form-text text-danger" *ngIf="password.errors?.[ 'minlength'] && (password.touched||LastName.dirty)">
+                    password should be greater than 3.
+                </div>
+                <div class="form-text text-danger" *ngIf="password.errors?.[ 'maxlength'] && (password.touched||LastName.dirty)">
+                    password should be less than 15.
+                </div>
+                <div class="form-text text-danger" *ngIf="password.errors?.[ 'pattern'] && (password.touched||password.dirty)">
+                    password should be start from alpha.
+                </div>
+
+            </div>
+
+            <div class="col mb-3">
+                <label for="repassword" class="form-label">Re-password</label>
+                <input type="text" ngModel class="form-control" id="repassword" formControlName="repassword">
+                <div class="form-text"></div>
+                <div class="form-text text-danger" [ngStyle]="{'display':repassword}">
+                    Re-password is required.
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn btn-success">Generate Password</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="text" ngModel class="form-control" id="email" formControlName="email">
+                <div class="form-text text-danger" *ngIf="Email.errors?.[ 'required'] && (Email.touched||Email.dirty)">
+                    E-mail is required.
+                </div>
+                <div class="form-text text-danger" *ngIf="Email.errors?.[ ' email'] && (Email.touched||Email.dirty)">
+                    E-mail is Invalid.
+                </div>
+                <div class="form-text"></div>
+            </div>
+
+
+            <div class="col mb-3">
+                <label for="mobile" class="form-label">Mobile Number</label>
+                <input type="text" ngModel class="form-control" id="mobile" formControlName="mobile">
+                <div class="form-text text-danger" *ngIf="Mobile.errors?.[ 'required'] && (Mobile.touched||Mobile.dirty)">
+                    Mobile Number is required.
+                </div>
+                <div class="form-text text-danger" *ngIf="Mobile.errors?.[ 'pattern'] && (Mobile.touched||Mobile.dirty)">
+                    Mobile is Invalid.
+                </div>
+                <div class="form-text text-danger" *ngIf="Mobile.errors?.[ 'minlength'] && (Mobile.touched||Mobile.dirty)">
+                    Mobile Number should be greater than 2.
+                </div>
+                <div class="form-text text-danger" *ngIf="Mobile.errors?.[ 'maxlength'] && (Mobile.touched||Mobile.dirty)">
+                    Mobile Number should be less than 10.
+                </div>
+                <div class="form-text text-danger" *ngIf="Mobile.errors?.[ 'pattern'] && (Mobile.touched||Mobile.dirty)">
+                    Mobile Number should be digits .
+                </div>
+                <div class="form-text"></div>
+            </div>
+            <div>
+                <button type="button" class="btn btn-danger">Send Otp</button>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="emailotp" class="form-label">Enter Email Otp</label>
+                <input type="text" class="form-control" id="emailotp" formControlName="emailotp">
+                <div class="form-text"></div>
+            </div>
+
+
+            <div class="col mb-3">
+                <label for="mobileotp" class="form-label"> Enter Mobile Otp</label>
+                <input type="text" class="form-control" id="mobileotp" formControlName="mobileotp">
+                <div class="form-text"></div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-6 offset-3">
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>

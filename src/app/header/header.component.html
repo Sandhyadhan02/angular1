@@ -1,0 +1,31 @@
+<nav class="nav navbar navbar-expand-lg  nav-menu pl-0 pr-0">
+    <div>
+        <img src="../../assets/Images/logo.jpeg" alt="logo" width="120px;" height="90px;">
+    </div>
+    <div *ngIf="menuType==='default'" class="nav-search">
+        <input type="text" class="formcontrol me-2" placeholder="Search for products">
+        <button>Search</button>
+    </div>
+    <div *ngSwitch="menuType">
+        <ul *ngSwitchCase="'default'" class="navbar-list">
+            <li> <a routerLink="home">Home</a></li>
+            <li> <a routerLink="seller-auth">Seller</a></li>
+            <li> <a routerLink="seller-home">Login</a></li>
+            <li> <a routerLink="register"> Register</a></li>
+
+            <li> <a routerLink="">Cart(0)</a></li>
+
+        </ul>
+        <ul *ngSwitchCase="' seller'" class="navbar-list">
+            <li> <a routerLink="home">product List</a></li>
+
+            <li> <a routerLink="seller-home"> Add product</a></li>
+            <li> <a routerLink="register">  Logout</a></li>
+
+            <li> <a routerLink="">Seller Name</a></li>
+
+        </ul>
+    </div>
+
+</nav>
+<br>
